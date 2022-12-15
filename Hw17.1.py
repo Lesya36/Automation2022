@@ -14,23 +14,27 @@ print(area_of_rec.area)
 class Rocket:
 
     def __int__(self):
-        self.x = 0
-        self.y = 0
+        self.x = x
+        self.y = y
 
     def move_up(self):
-        self.y = +1
+        self.y += 1
 
     def move_right(self):
-        self.x = +1
+        self.x += 1
 
     def mode_down(self):
-        self.y = -1
+        self.y -= 1
 
     def move_left(self):
-        self.x = -1
+        self.x -= 1
 
     def current_position(self):
+        print(self.x,self.y)
 
-
-print(self.x)
-print(self.y)
+Rocket = Rocket(0,0)
+Rocket.move_up()
+Rocket.move_right()
+Rocket.move_left()
+Rocket.mode_down()
+Rocket.current_position()
