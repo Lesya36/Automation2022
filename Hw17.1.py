@@ -1,12 +1,14 @@
 #exersise 1
 
 class Rectangle:
-    lenght = 10
-    width = 20
-    area=(lenght * width)
+    def __init__(self, l, w):
+     self.length = l
+     self.width = w
 
-area_of_rec=Rectangle
-print(area_of_rec.area)
+    def rectangle_area(self):
+        return self.length * self.width
+newRectangle = Rectangle(12, 10)
+print(newRectangle.rectangle_area())
 
 
 #exersise 2
