@@ -6,7 +6,7 @@
 program = True
 while program:
     user_input = input("Type a word ,or STOP to exit\n").lower()
-    if user_input == "STOP":
+    if user_input == "stop":
        program = False
 
 print("You typed", user_input)
@@ -21,8 +21,10 @@ for key,value in my_dict.items():
 
 #Exersise3
 
-my_tuple=(4, 30, 2017, 2, 27)
-print( '2 27 2017 4 30'.format(my_tuple))
+my_tuple = (4, 30, 2017, 2, 27)
+print("{} {} {} {} {}".format(my_tuple[3],my_tuple[4],my_tuple[2], my_tuple[0], my_tuple[1]))
+
+
 
 
 
