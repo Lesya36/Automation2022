@@ -1,5 +1,13 @@
 from selenium import webdriver
+
+#imports for selenium WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+
 from selenium.webdriver.support.color import Color
+
 
 driver = webdriver.Chrome(executable_path="Drivers/chromedriver.exe")
 driver.get("https://cleveronly.com/brainbucket/index.php?route=account/login")
@@ -8,16 +16,22 @@ driver.maximize_window()
 
 logo = driver.find_element_by_xpath("//img[@title='Brainbucket']")
 
-newregistratbtn = driver.find_element_by_xpath("//a[contains(text(), 'Continue')]")
 
-background_color = newregistratbtn.value_of_css_property("background-color")
+#logo = wd_wait.until(EC.visibility_of_element_located((By.XPATH, "//img[@title='Brainbucket']")))
+
+new_registrant_btn=WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(), 'Continue')]")))
+
+background_color = new_registrant_btn.value_of_css_property("background-color")
 converted_background_color = Color.from_string(background_color)
 assert converted_background_color.rgb == 'rgb(34, 154, 200)'
-newregistratbtn.click()
+new_registrant_btn.click()
+
+
 
 firstname_field = driver.find_element_by_xpath("//fieldset/div[2]")
 firstname_field_class = firstname_field.get_attribute("class")
 assert "required" in firstname_field_class
+
 firstname_input = driver.find_element_by_id("input-firstname")
 firstname_input.clear()
 firstname_input.send_keys("Lesya")
@@ -88,8 +102,7 @@ passwordcnfrm_input.clear()
 passwordcnfrm_input.send_keys("15865847")
 
 
-
-
+driver.quit()
 
 
 
