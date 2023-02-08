@@ -1,0 +1,2 @@
+def browser():
+    return None
