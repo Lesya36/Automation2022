@@ -13,7 +13,7 @@ class Header:
         self.checkout_btn = Element(browser, By.XPATH, "//a[@title='Checkout']")
         self.currency_btn = Element(browser, By.ID, "form-currency")
         self.logo = Element(browser, By.ID, "logo")
-        self.search = Element(browser, By.ID, "search")
+        self.search_btn = Element(browser, By.ID, "search")
         self.new_currency_dropdown = Element(browser, By.XPATH, "//ul[@class = 'dropdown-menu']")
         self.euro_currency_btn = Element(browser, By.NAME, "EUR")
         self.gbp_currency_btn = Element(browser, By.NAME, "GBP")
@@ -44,6 +44,6 @@ class Header:
         self.wish_list_btn.click()
 
     def search_for(self, text):
-        self.search.wait_until_visible()
-        self.search.enter_text(text)
-        self.search.click()
+        self.search_btn.wait_until_visible()
+        self.search_btn.enter_text(text)
+        self.search_btn.click()
