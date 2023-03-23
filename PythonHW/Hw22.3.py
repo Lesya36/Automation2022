@@ -10,4 +10,4 @@ while True:
         print("Invalid date format! Please enter the date in the format YYYY-MM-DD.")
 
 day_of_week = date_obj.strftime('%A')
-print(f"The day of the week for {date_str} is {day_of_week}")
+print(f"The day of the week for {date_str} is {day_of_week})
