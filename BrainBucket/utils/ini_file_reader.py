@@ -22,14 +22,26 @@ class IniFileReader:
         return int(value)
 
     def get_email(self):
-        value = self.data.get('environment', 'get_email', fallback=None)
+        value = self.data.get('user1', 'email', fallback=None)
         if value is None:
             raise Exception("Get_email option is not present in the config file")
-        return int(value)
+        return value
 
     def get_password(self):
-        value = self.data.get('environment', 'get_password', fallback=None)
+        value = self.data.get('user1', 'password', fallback=None)
         if value is None:
             raise Exception("Get_password option is not present in the config file")
-        return int(value)
+        return value
+
+    def get_width(self):
+        value = self.data.get('environment', 'width', fallback=None)
+        if value is None:
+            raise Exception("Get_width option is not present in the config file")
+        return value
+
+    def get_length(self):
+        value = self.data.get('environment', 'length', fallback=None)
+        if value is None:
+            raise Exception("Get_length option is not present in the config file")
+        return value
 
