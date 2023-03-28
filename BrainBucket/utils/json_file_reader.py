@@ -21,11 +21,20 @@ class JsonFileReader:
     def get_email(self):
         if 'get_email' not in self.data.keys():
             raise Exception("Get_email option is not present in the config file")
-        return int(self.data['get_email'])
+        return self.data['get_email']
 
     def get_password(self, section_name):
         if 'get password' not in self.data.keys():
             raise Exception("Get_password option is not present in the config file")
-        return int(self.data['get password''user1'])
+        return self.data['get password']
 
+    def get_width(self):
+        if 'get_width' not in self.data.keys():
+            raise Exception("Get_width option is not present in the config file")
+        return int(self.data['get_width'])
+
+    def get_length(self):
+        if 'get_length' not in self.data.keys():
+            raise Exception("Get_length option is not present in the config file")
+        return int(self.data['get_length'])
 
