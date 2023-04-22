@@ -11,7 +11,7 @@ class Alert:
         self.alert.dismiss()
 
     def enter_text(self, text):
-        self.enter_text(text)
+        self.alert.send_keys(text)
         self.alert.accept()
 
 #Exercise #2
