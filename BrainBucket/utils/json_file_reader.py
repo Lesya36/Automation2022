@@ -18,23 +18,17 @@ class JsonFileReader:
             raise Exception("Wait_time option is not present in the config file")
         return int(self.data['wait_time'])
 
-    def get_email(self):
-        if 'get_email' not in self.data.keys():
-            raise Exception("Get_email option is not present in the config file")
-        return self.data['get_email']
+    def get_user1_email(self):
+        if 'email' not in self.data.keys():
+            raise Exception("email option is not found in user1 section")
+        return self.data['email']
 
-    def get_password(self, section_name):
-        if 'get password' not in self.data.keys():
-            raise Exception("Get_password option is not present in the config file")
-        return self.data['get password']
+    def get_user1_password(self):
+        if 'password' not in self.data.keys():
+            raise Exception("password option is not found in user1 section")
+        return self.data['password']
 
-    def get_width(self):
-        if 'get_width' not in self.data.keys():
-            raise Exception("Get_width option is not present in the config file")
-        return int(self.data['get_width'])
-
-    def get_length(self):
-        if 'get_length' not in self.data.keys():
-            raise Exception("Get_length option is not present in the config file")
-        return int(self.data['get_length'])
-
+    def get_url(self):
+        if 'url' not in self.data.keys():
+            raise Exception("URL option is not present in the config file")
+        return self.data['url']
