@@ -1,0 +1,121 @@
+<testsuite name="login.Login functionality" tests="4" errors="4" failures="0" skipped="0" time="14.626943" timestamp="2023-04-26T14:57:36.791784" hostname="DESKTOP-FHF7SPG"><testcase classname="login.Login functionality" name="a user can login using correct email and password" status="failed" time="4.118376"><error type="AttributeError" message="'Context' object has no attribute 'configs'">
+<![CDATA[
+Failing step: When user enters email and password ... failed in 0.003s
+Location: BrainBucket/BDDBehave/logintests/login.feature:9
+Traceback (most recent call last):
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "BrainBucket\BDDBehave\logintests\steps\loginsteps.py", line 45, in enter_email_and_password
+    configs = context.configs
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\runner.py", line 321, in __getattr__
+    raise AttributeError(msg)
+AttributeError: 'Context' object has no attribute 'configs'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @positive
+  Scenario: a user can login using correct email and password
+    Given User launch login page ... passed in 4.006s
+    Given User is not logged in ... passed in 0.109s
+    When user enters email and password ... failed in 0.003s
+    And User clicks Login button ... skipped in 0.000s
+    Then The user's profile page will be launched ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="login.Login functionality" name="User can't login without entering password" status="failed" time="3.24071"><error type="AttributeError" message="'Context' object has no attribute 'configs'">
+<![CDATA[
+Failing step: When User enters email ... failed in 0.001s
+Location: BrainBucket/BDDBehave/logintests/login.feature:16
+Traceback (most recent call last):
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "BrainBucket\BDDBehave\logintests\steps\loginsteps.py", line 68, in enter_email
+    login_page.enter_email(context.configs.get_user1_email())
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\runner.py", line 321, in __getattr__
+    raise AttributeError(msg)
+AttributeError: 'Context' object has no attribute 'configs'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @enter_email
+  Scenario: User can't login without entering password
+    Given User launch login page ... passed in 3.127s
+    Given User is not logged in ... passed in 0.113s
+    When User enters email ... failed in 0.001s
+    And User clicks Login button ... skipped in 0.000s
+    Then warning is shown 'No match for E-Mail Address and/or Password' ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="login.Login functionality" name="User can't login without entering email" status="failed" time="3.548214"><error type="AttributeError" message="'Context' object has no attribute 'configs'">
+<![CDATA[
+Failing step: When user enters password ... failed in 0.002s
+Location: BrainBucket/BDDBehave/logintests/login.feature:23
+Traceback (most recent call last):
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "BrainBucket\BDDBehave\logintests\steps\loginsteps.py", line 74, in enter_password
+    login_page.enter_password(context.configs.get_user1_password())
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\runner.py", line 321, in __getattr__
+    raise AttributeError(msg)
+AttributeError: 'Context' object has no attribute 'configs'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @negative @skip @enter_password
+  Scenario: User can't login without entering email
+    Given User launch login page ... passed in 3.415s
+    Given user is not logged in ... passed in 0.131s
+    When user enters password ... failed in 0.002s
+    And user clicks Login button ... skipped in 0.000s
+    Then warning is shown 'No match for E-Mail Address and/or Password' ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="login.Login functionality" name="User on the login page can reset password with correct email" status="failed" time="3.719642"><error type="AttributeError" message="'Context' object has no attribute 'login_page'">
+<![CDATA[
+Failing step: Given user clicks 'Forgotten Password' ... failed in 0.001s
+Location: BrainBucket/BDDBehave/logintests/login.feature:29
+Traceback (most recent call last):
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "BrainBucket\BDDBehave\logintests\steps\loginsteps.py", line 38, in click_forgotten_btn
+    login_page = context.login_page
+  File "C:\Users\Volodymyr\AppData\Local\Programs\Python\Python310\lib\site-packages\behave\runner.py", line 321, in __getattr__
+    raise AttributeError(msg)
+AttributeError: 'Context' object has no attribute 'login_page'
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+
+  @positive @password_reset
+  Scenario: User on the login page can reset password with correct email
+    Given User launch login page ... passed in 3.719s
+    Given user clicks 'Forgotten Password' ... failed in 0.001s
+    When user enters email ... skipped in 0.000s
+    And user clicks Continue button ... skipped in 0.000s
+    Then confirmation message is shown 'An email with a confirmation link has been sent your email address' ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

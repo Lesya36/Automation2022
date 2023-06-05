@@ -1,6 +1,7 @@
 from BrainBucket.utils.json_file_reader import JsonFileReader
 from BrainBucket.utils.ini_file_reader import IniFileReader
 
+
 class ConfigReader:
     def __init__(self, filename):
         self.reader = None
@@ -18,14 +19,11 @@ class ConfigReader:
     def get_wait_time(self):
         return self.reader.get_wait_time()
 
-    def get_email(self):
-        return self.reader.get_email()
+    def get_user1_email(self):
+        return self.reader.get_user1_email()
 
-    def get_password(self):
-        return self.reader.get_password()
+    def get_user1_password(self):
+        return self.reader.get_user1_password()
 
-    def get_width(self):
-        return self.reader.get_width()
-
-    def get_length(self):
-        return self.reader.get_length()
+    def get_url(self):
+        return self.reader.get_url()

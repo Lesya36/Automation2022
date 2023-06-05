@@ -32,6 +32,12 @@ def type_value_in_field(context, value, field):
         registration_page.enter_telephone(value)
     elif field == "password":
         registration_page.enter_password(value)
+    elif field == "e-mail":
+        registration_page.enter_email(value)
+    elif field == "address 1":
+        registration_page.enter_first_line_address(value)
+    elif field == "city":
+        registration_page.enter_city(value)
 
 
 @when("user clicks Continue button")
@@ -49,3 +55,9 @@ def verify_error_registration_form(context, field):
         assert context.registration_form.get_phonenumber_error() == "Telephone must be between 3 and 32 characters!"
     elif field == "password":
         assert context.registration_form.get_password_error() == "Password must be between 4 and 20 characters!"
+    elif field == "email":
+        assert context.registration_form.get_email_error() == "E-Mail Address does not appear to be valid!"
+    elif field == "address 1":
+        assert context.registration_form.get_address_error() == "Address 1 must be between 3 and 128 characters!"
+    elif field == "city":
+        assert context.registration_form.get_city_error() == "City must be between 2 and 128 characters!"

@@ -1,5 +1,4 @@
-from BrainBucket.webelements.UIElement import UIElement as Element
-from selenium.webdriver.support.select import Select
+
 
 
 # Create Radiobutton/Checkbox class that will be inherited from UIElement class
@@ -13,12 +12,12 @@ class Checkbox(Element):
         super().__init__(browser, by, locator)
 
     def select(self):
-        checkbox_element = self.get_element()
+        checkbox_element = self.get_element
         if not checkbox_element.is_selected():
             checkbox_element.click()
 
     def deselect(self):
-        checkbox_element = self.get_element()
+        checkbox_element = self.get_element
         if checkbox_element.is_selected():
             checkbox_element.click()
 

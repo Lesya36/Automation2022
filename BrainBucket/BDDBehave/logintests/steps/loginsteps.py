@@ -4,6 +4,7 @@
     And user clicks Login button 
     Then user's profile page will be launched
     """
+from _elementtree import Element
 from behave import given, when, then
 from selenium.webdriver.common.by import By
 
@@ -13,8 +14,9 @@ from BrainBucket.components.right_menu import RightMenu
 from BrainBucket.utils.config_reader import ConfigReader
 from BrainBucket.webelements.browser import Browser
 
-URL = "https://techskillacademy.net/brainbucket/index.php?route=account/login"
-configs = ConfigReader("BrainBucketTests/BDDBehave/logintests/steps/config.ini")
+URL = "https://cleveronly.com/brainbucket/index.php?route=account/login"
+
+configs = ConfigReader("BrainBucket/BDDBehave/logintests/steps/config.ini")
 
 
 @given("user launch login page")

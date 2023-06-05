@@ -18,12 +18,12 @@ def after_scenario(context, scenario):
 
 
 def before_feature(context, feature):
-    pass
+    print("Runs Before Each Feature")
 
 
 def after_feature(context, feature):
-    pass
+    print("Run After Each Feature")
 
 
 def after_all(context):
-    pass
+    context.browser.shutdown()

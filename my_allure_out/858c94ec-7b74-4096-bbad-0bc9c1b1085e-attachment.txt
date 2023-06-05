@@ -1,0 +1,12 @@
+  Scenario: User can't login without entering password
+    Given User is not logged in
+    When User enters email
+    And User clicks Login button
+    Then warning is shown 'No match for E-Mail Address and/or Password'
+
+ @negative @skip @enter_password
+ Scenario: User can't login without entering email
+   Given user is not logged in
+   When user enters password
+   And user clicks Login button
+   Then warning is shown 'No match for E-Mail Address and/or Password'
