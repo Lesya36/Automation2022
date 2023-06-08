@@ -1,25 +1,37 @@
 @wip
-Feature: Test product page and add to cart functionality
+Feature: Test new product page and quickshop functionality
 
-         Background:
-         Given User launched Botanika Beauty shop page
+  Background:
+    Given Botanika Beauty shop page is launched
 
-      Scenario Outline:User wants to "<shop>" by adding "<product>" to cart
-       Given User has selected random "<product>" from "<shop>" page
-       When Random quantity of the "<product>" was added to the shopping cart
-       Then User can see that number of products in the cart was updated
+
+  Scenario Outline:Customer can purchase new product by adding "<supply>" to cart
+    Given customer has selected available "<supply>" from new product page
+    When  "<quantity>" of the "<supply>" was added to the shopping cart
+    Then customer can see that number of products in the cart was updated
 
 
       Examples:
-      |shop       |product    |
-      |new product|shampoo    |
-      |all product|conditioner|
-      |quickshop  | cream     |
-      |           | mouse     |
-      |           | gel       |
-      |           | spray     |
-      |           | serum     |
-      |           | mask      |
-      |           | treatment |
-      |           | gift card |
-      |           | t-shirt   |
+      |quantity   |supply     |
+      |1          |shampoo    |
+      |3          |conditioner|
+      |5          |trio bundle|
+      |           |spray      |
+
+
+    Scenario Outline: Customer can add products to cart with quickshop option
+    Given customer is on new product page
+    When  customer clicks quickshop option on "<supply>" product
+    And   one "<supply>" was added to the cart
+    Then  verify that product in the cart was updated
+
+      Examples:
+      |supply     |
+      |shampoo    |
+      |conditioner|
+      |trio bundle|
+      |spray      |
+
+
+
+
