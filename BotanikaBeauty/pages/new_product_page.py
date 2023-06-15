@@ -1,49 +1,61 @@
 
-from BrainBucket.webelements.actions import Actions
-from BrainBucket.webelements.browser import Browser
-from BrainBucket.webelements.UIElement import UIElement
+from BrainBucket.SmokeTest import browser
+from BrainBucket.webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
-from BotanikaBeauty.components.navigation_bar import NavigationBar
 
-URL = "https://botanikabeauty.com/collections/new"
+from BrainBucket.webelements.actions import Actions
 
 
-#Yes, you need to start with xpath and creating UIElements for them inside init
+#URL = "https://botanikabeauty.com/collections/new"
 
 
 
 class NewProductPage:
     def __init__(self, browser):
         self.actions = Actions(browser)
-        self.shampoo = Element(browser,By.XPATH "//a[contains(text(),'The Cleanser Hydrating Shampoo')]")
-        self.conditioner  = Element(browser,By.XPATH "//a[contains(text(),'The Manager Silkening Conditioner')]")
-        self.trio_bundle = ELement(browser,By.XPATH "//a[contains(text(),'Trio Bundle: The Manager, Lifter & Cleanser')]")
-        self.volumizer_spray = Element(browser,By.XPATH "//a[contains(text(),'The Lifter Volumizer Spray')]")
+        self.shampoo = Element(browser,By.XPATH,"//a[contains(text(),'The Cleanser Hydrating Shampoo')]")
+        self.conditioner  = Element(browser,By.XPATH,"//a[contains(text(),'The Manager Silkening Conditioner')]")
+        self.trio_bundle = Element(browser,By.XPATH,"//a[contains(text(),'Trio Bundle: The Manager, Lifter & Cleanser')]")
+        self.volumizer_spray = Element(browser,By.XPATH,"//a[contains(text(),'The Lifter Volumizer Spray')]")
         #shop options
         # is it possible to make them as add to cart OR quick_shop option?
-        self.add_to_cart_btn = ELement(browser,By.NAME "Add to Cart")
-        self.quick_shop_btn = Element(browser,By.NAME "icon-quickview")
+        self.add_to_cart_btn = Element(browser,By.NAME,"Add to Cart") #(//span[@title='Add to Cart'])[1]
+        self.quick_shop_btn = Element(browser,By.NAME,"icon-quickview") #//span[@data-handle='the-cleanser']//i[@class='icon-quickview']
 
 
 
-   def shop_shampoo(self):
-       self.actions.move_to_element() # not sure if this is correct
-       self.add_to_cart_btn.wait_untill_visible()
+     def add_to_cart_shampoo(self):
+       self.actions.move_to_element(self.shampoo)
        self.add_to_cart_btn.click()
 
-   def shop_conditioner(self):
-        self.actions.move_to_element()
-        self.add_to_cart_btn.wait_until_visible()
+    def add_to_cart_conditioner(self):
+        self.actions.move_to_element(self.conditioner)
+        self.add_to_cart_btn.click()
+
+    def add_to_cart_trio_bundle(self):
+        self.actions.move_to_element(self.trio_bundle)
+        self.add_to_cart_btn.click()
+
+    def add_to_cart_volumizer_spray(self):
+        self.actions.move_to_element(self.volumizer_spray)
         self.add_to_cart_btn.click()
 
 
-    #will continue after the rest after fix all mistakes
-    def shop_trio_bundle(self):
-    pass
+    def quick_shop_shampoo(self):
+        self.actions.move_to_element(self.shampoo)
+        self.quick_shop_btn.click()
 
+    def quick_shop_conditioner(self):
+        self.actions.move_to_element(self.conditioner)
+        self.quick_shop_btn.click()
 
-    #should I also create same functions for each product but put
-    #self.quick_shop_btn.click?
+    def quick_shop_trio_bundle(self):
+        self.actions.move_to_element(self.conditioner)
+        self.quick_shop_btn.click()
+
+    def quick_shop_volumizer_spray(self):
+        self.actions.move_to_element(self.volumizer_spray)
+        self.quick_shop_btn.click()
 
 
 
