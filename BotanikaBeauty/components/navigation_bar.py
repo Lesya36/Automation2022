@@ -22,10 +22,9 @@ class NavigationBar:
 
     def verify_product_is_in_cart(self, product_name):
         self.cart.click()
-        self.verify_product_is_in_cart(product_name)
-        assert product_name.get_text()
+        assert product_name.get_text == "The Cleanser Hydrating Shampoo"
 
-
+    
 
 
 
