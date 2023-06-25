@@ -4,6 +4,8 @@ from BrainBucket.webelements.UIElement import UIElement as Element
 from selenium.webdriver.common.by import By
 
 from BrainBucket.webelements.actions import Actions
+from BrainBucket.webelements.browser import Browser
+from BotanikaBeauty.components.filters import Filters
 
 
 #URL = "https://botanikabeauty.com/collections/new"
@@ -18,12 +20,13 @@ class NewProductPage:
         self.trio_bundle = Element(browser,By.XPATH,"//a[contains(text(),'Trio Bundle: The Manager, Lifter & Cleanser')]")
         self.volumizer_spray = Element(browser,By.XPATH,"//a[contains(text(),'The Lifter Volumizer Spray')]")
         #shop options
-        # is it possible to make them as add to cart OR quick_shop option?
+    #elements
         self.add_to_cart_btn = Element(browser,By.NAME,"Add to Cart") #(//span[@title='Add to Cart'])[1]
         self.quick_shop_btn = Element(browser,By.NAME,"icon-quickview") #//span[@data-handle='the-cleanser']//i[@class='icon-quickview']
+        self.filters_btn = Element(browser,By.XPATH, "//span[contains(text(),'Filter')]")
+        self.all_products = Element(browser,By.XPATH,"")
 
-
-
+    #methods
      def add_to_cart_shampoo(self):
        self.actions.move_to_element(self.shampoo)
        self.add_to_cart_btn.click()
@@ -57,11 +60,13 @@ class NewProductPage:
         self.actions.move_to_element(self.volumizer_spray)
         self.quick_shop_btn.click()
 
+    def click_filters_btn(self):
+        self.filters_btn.click()
 
 
-
-
-
+    def get_quantity_of_products(self):
+        all_products = self.all_products.get_elements()
+        return len(all_products)
 
 
 
