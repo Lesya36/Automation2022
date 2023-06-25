@@ -8,7 +8,7 @@ Feature: New product page and quickshop functionality
   Scenario Outline:Customer can purchase new product by adding "<supply>" to cart
     Given customer has selected available "<supply>" from new product page
     When  one  "<supply>" was added to the shopping cart
-    Then  "<supply>" is in the cart
+    Then  verify is in the cart
 
 
       Examples:
@@ -23,7 +23,7 @@ Feature: New product page and quickshop functionality
     Given customer is on new product page
     When  clicks quickshop option on "<supply>" product
     And   selects a "<quantity>"
-    Then  verify "<supply>" is in the cart
+    Then  verify is in the cart
 
       Examples:
       |quantity   |supply     |
